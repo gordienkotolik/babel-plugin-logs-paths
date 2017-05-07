@@ -1,28 +1,39 @@
-var _ = require('lodash')
+import _ from 'lodash';
+
+
+function isLogger(path, loggers) {
+  return _.some(loggers, function(logger) {
+    return path.get("callee").matchesPattern(logger.pattern, true)
+  })
+}
+
+
 export default function({types: t}) {
   return {
     visitor: {
       CallExpression(path, options) {
-        var loggers = options.opts.loggers || [{pattern: 'console'}]
+        const loggers = options.opts.loggers || [{pattern: 'console'}];
         if(isLogger(path, loggers)) {
-          var description = []
+          const description = [];
           for(let expression of path.node.arguments) {
             if(description.length === 0) {
-              let relativePath
-              let filePath = this.file.log.filename
+              let relativePath;
+              let filePath = this.file.log.filename;
               if(filePath.charAt(0) !== '/') {
                 relativePath = filePath
               } else {
-                let cwd = process.cwd()
+                let cwd = process.cwd();
                 relativePath = filePath.substring(cwd.length + 1)
               }
 
               if(!expression.loc) {
                 description.push(this.file.code.substring(expression.start, expression.end))
               } else {
-                let line = expression.loc.start.line
-                let column = expression.loc.start.column
-                description.push(`${relativePath}:${line}:${column}:${this.file.code.substring(expression.start, expression.end)}`)
+                let line = expression.loc.start.line;
+                let column = expression.loc.start.column;
+                description.push(
+                  `${relativePath}:${line}:${column}:${this.file.code.substring(expression.start, expression.end)}`
+                )
               }
             } else {
               description.push(this.file.code.substring(expression.start, expression.end))
@@ -34,11 +45,4 @@ export default function({types: t}) {
       }
     }
   }
-
-}
-
-function isLogger(path, loggers) {
-  return _.some(loggers, function(logger) {
-    return path.get("callee").matchesPattern(logger.pattern, true)
-  })
 }
