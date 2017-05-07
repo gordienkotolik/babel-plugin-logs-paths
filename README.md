@@ -1,7 +1,7 @@
-Babel Plugin Meaningful Logs
+Babel Plugin Logs Paths
 ======
 
-A babel plugin that enhances your logs by adding the file and the object logging.
+A fork of [babel-plugin-meaningful-logs](https://github.com/furstenheim/babel-plugin-meaningful-logs) A babel plugin that enhances your logs by adding the file and the object logging.
 
 ### Example
 ```javascript
@@ -21,7 +21,7 @@ By default it modifies all console commands: console.error, console.log... But i
 ```
 {
   plugins: [
-    ['meaningful-logs',
+    ['logs-paths',
     {loggers: [{pattern: 'winston'}]}
     ]
   ]

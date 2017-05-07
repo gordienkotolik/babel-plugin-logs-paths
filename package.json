@@ -1,11 +1,11 @@
 {
-  "name": "babel-plugin-meaningful-logs",
-  "version": "1.0.2",
+  "name": "babel-plugin-logs-paths",
+  "version": "1.0.0",
   "description": "Give meaning to your logs",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/furstenheim/babel-plugin-meaningful-logs.git"
+    "url": "git://github.com/gordienkotolik/babel-plugin-logs-paths.git"
   },
   "scripts": {
     "test": "mocha  test/main.js",
@@ -17,7 +17,7 @@
     "debug",
     "babel"
   ],
-  "author": "Gabriel Fürstenheim <furstenheim@gmail.com>",
+  "author": "Anatolii Hordiienko <tolig.emale@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.10.1",
