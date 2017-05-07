@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-logs-paths",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Add path info to log output.",
   "main": "index.js",
   "engines": {

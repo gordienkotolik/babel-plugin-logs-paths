@@ -26,9 +26,7 @@ export default function({types: t}) {
                 relativePath = filePath.substring(cwd.length + 1)
               }
 
-              if(!expression.loc) {
-                description.push(this.file.code.substring(expression.start, expression.end))
-              } else {
+              if(expression.loc) {
                 let line = expression.loc.start.line;
                 let column = expression.loc.start.column;
                 description.push(
