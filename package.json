@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-logs-paths",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Give meaning to your logs",
   "main": "dist/index.js",
   "repository": {
